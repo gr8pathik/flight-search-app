@@ -1,8 +1,12 @@
 import React, {useState} from "react";
 import {Tabs, Tab} from "react-bootstrap";
+import FlightSearchForm from "./FlightSearchForm";
+import "../styles/SideBar.css"
+import {connect} from "react-redux";
+import {getFlights} from "../actions/flightsActions";
 
-const SideBar = () => {
-    const [key, setKey] = useState('oneway');
+const SideBar = ({getFlights}) => {
+    const [key, setKey] = useState("oneway");
 
     return (
         <Tabs
@@ -11,12 +15,20 @@ const SideBar = () => {
             onSelect={(k) => setKey(k)}
         >
             <Tab eventKey="oneway" title="One Way">
-                Some Content
+                <FlightSearchForm getFlights={getFlights} />
             </Tab>
             <Tab eventKey="return" title="Return">
-                SOme Content
+                <FlightSearchForm getFlights={getFlights} isReturn={true} />
             </Tab>
         </Tabs>
     );
 }
-export default SideBar;
+
+
+export const mapStateToProps = (state) => {
+    return {
+        flights: state.flights.flights
+    };
+};
+
+export default connect(mapStateToProps, {getFlights})(SideBar);

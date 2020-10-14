@@ -1,3 +1,21 @@
+# Flight search app
+
+### Features Implemented
+
+- Search from with oneway and return
+- Fetched the data from the Actual api
+- Implemented a basic UI for Flight form and Flight List
+- Implemented a feature to list the one way and return flight
+
+### Features Pending
+
+- As my system was not working, and the lack of time i cannot implement some features
+- Multiple flight
+- Test Cases
+- Validation in form
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
